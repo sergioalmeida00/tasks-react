@@ -1,0 +1,29 @@
+section{
+  max-width: 46rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.tasksInfo{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;  
+}
+
+.tasksInfo span{
+  color: var(--blue-400);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.tasksInfo span strong{
+  color: var(--gray-200);
+  background: var(--gray-400);
+  padding: 0.3rem;
+  border-radius: 8px;
+}
+
+.task{
+  margin-top: 1.5rem;
+}
