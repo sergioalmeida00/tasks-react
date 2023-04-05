@@ -1,14 +1,20 @@
 import style from './Header.module.css'
 import logo from '../../assets/logo.svg'
 import { useState } from 'react'
+import { useContext } from 'react'
+import { ContextTask } from '../../TaskContext'
 
-export function Header({onSetTask}){
+export function Header(){
+  
+  const {handleSetTasks} = useContext(ContextTask)
+
   const [title,setTitle] = useState('')
-
   const isNewTaskEmpty = title.length === 0
+
+
   function handleSubmit(event){
     event.preventDefault()
-    onSetTask(title)
+    handleSetTasks(title)
     setTitle('')
   }
 

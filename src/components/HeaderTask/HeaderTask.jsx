@@ -1,10 +1,16 @@
 import { Task } from '../Task/Task'
 import style from './HeaderTask.module.css'
 import ClipBoard from '../../assets/Clipboard.svg'
+import { useContext } from 'react'
+import { ContextTask } from '../../TaskContext'
 
-export function HeaderTask({tasks, onDelete, onToggleTask}){
+
+export function HeaderTask(){
+  const { tasks } = useContext(ContextTask)
+
   const tasksQuantity = tasks.length
   const completedTasks = tasks.filter(task => task.isCompleted).length
+
   return(
     <section>
         <div className={style.tasksInfo}>
@@ -16,9 +22,7 @@ export function HeaderTask({tasks, onDelete, onToggleTask}){
             tasks.map((task) => (
               <Task 
                 key={task.id}
-                task={task}
-                onDelete={onDelete}
-                onToggleTask={onToggleTask}
+                task={task}  
               />
             ))
           }
