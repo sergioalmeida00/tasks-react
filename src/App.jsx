@@ -1,13 +1,28 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Header } from './components/Header/Header'
 import { HeaderTask } from './components/HeaderTask/HeaderTask'
 import { v4 as uuidv4 } from 'uuid';
 
+
+const LOCAL_STORAGE_KEY= 'todo:savedTasks'
 function App() {
   const [tasks, setTasks] = useState([])
 
+  function loadSavedStorageTasks(){
+   const savedTaskStorage = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+   if(savedTaskStorage){
+    setTasks(JSON.parse(savedTaskStorage))
+   }
+  }
+
+  function setTasksStorage(newTasks){
+    setTasks(newTasks)
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks))
+  }
+
   function handleSetTasks(taskTitle){
-    setTasks([
+    setTasksStorage([
       ...tasks,
       {
         id:uuidv4(),
@@ -19,7 +34,7 @@ function App() {
 
   function handleDeleteById(taskId){
     const newTask = tasks.filter(task => task.id !== taskId)
-    setTasks(newTask)
+    setTasksStorage(newTask)
   }
 
   function toggleTaskCompletedById(taskId){
@@ -34,8 +49,12 @@ function App() {
       return task
     })
 
-    setTasks(newTask)
+    setTasksStorage(newTask)
   }
+  
+  useEffect( () => {
+    loadSavedStorageTasks()
+  },[])
 
   return (
     <div >
