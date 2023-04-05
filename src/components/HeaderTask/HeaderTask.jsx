@@ -1,5 +1,6 @@
 import { Task } from '../Task/Task'
 import style from './HeaderTask.module.css'
+import ClipBoard from '../../assets/Clipboard.svg'
 
 export function HeaderTask({tasks, onDelete, onToggleTask}){
   const tasksQuantity = tasks.length
@@ -21,6 +22,14 @@ export function HeaderTask({tasks, onDelete, onToggleTask}){
               />
             ))
           }
+
+          {tasksQuantity <= 0 && (
+            <div className={style.tasksEmpety}>
+                <img src={ClipBoard} alt="" />
+                <strong>Você ainda não tem tarefas cadastradas</strong>
+                <span>Crie tarefas e organize seus itens a fazer</span>
+            </div>
+          )}
         </div>
     </section>
 

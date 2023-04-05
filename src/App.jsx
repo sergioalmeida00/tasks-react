@@ -4,9 +4,7 @@ import { HeaderTask } from './components/HeaderTask/HeaderTask'
 import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {id:'eb6705b6-ac88-457c-97e3-2cee6ff3b6d5', title:'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.', isCompleted:true}
-  ])
+  const [tasks, setTasks] = useState([])
 
   function handleSetTasks(taskTitle){
     setTasks([
