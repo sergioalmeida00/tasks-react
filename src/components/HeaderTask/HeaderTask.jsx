@@ -1,8 +1,8 @@
 import { Task } from '../Task/Task'
-import style from './HeaderTask.module.css'
 import ClipBoard from '../../assets/Clipboard.svg'
 import { useContext } from 'react'
 import { ContextTask } from '../../TaskContext'
+import { Container } from './styles'
 
 
 export function HeaderTask(){
@@ -12,12 +12,12 @@ export function HeaderTask(){
   const completedTasks = tasks.filter(task => task.isCompleted).length
 
   return(
-    <section>
-        <div className={style.tasksInfo}>
+    <Container>
+        <div className="task-info">
           <span>Tarefas criadas <strong> {tasksQuantity} </strong></span>
           <span>Concluídas <strong>{completedTasks} de {tasksQuantity} </strong></span>
         </div>
-        <div className={style.task}>
+        <div className="task">
           {
             tasks.map((task) => (
               <Task 
@@ -28,14 +28,14 @@ export function HeaderTask(){
           }
 
           {tasksQuantity <= 0 && (
-            <div className={style.tasksEmpety}>
+            <div className="task-empty">
                 <img src={ClipBoard} alt="" />
                 <strong>Você ainda não tem tarefas cadastradas</strong>
                 <span>Crie tarefas e organize seus itens a fazer</span>
             </div>
           )}
         </div>
-    </section>
+    </Container>
 
   )
 }

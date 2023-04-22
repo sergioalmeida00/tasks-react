@@ -1,7 +1,7 @@
-import styles from './Task.module.css'
 import { ContextTask } from '../../TaskContext'
 import { useContext, useState } from 'react'
 import { Modal } from '../Modal/Modal'
+import { Container } from './styles'
 
 export function Task({task}){
 
@@ -13,9 +13,7 @@ export function Task({task}){
   }
 
   return(
-    <div 
-      className={styles.taskContent}
-    >
+    <Container isCompleted={task.isCompleted }>
 
       {
         openModal && (
@@ -23,19 +21,17 @@ export function Task({task}){
         )
       }
 
-      <button className={styles.checkContainer} onClick={() => toggleTaskCompletedById(task.id)}>
-        <div 
-          className={task.isCompleted ? styles.active : ''}
-        />
+      <button className="check-button" onClick={() => toggleTaskCompletedById(task.id)}>
+        <div/>
       </button>
       
-       <p className={ task.isCompleted ? styles.completed : ''}> 
+       <p> 
         {task.title}
        </p>
 
-      <button className={styles.delete} onClick={handleOpenOrCloseModal}>
+      <button className="button-delete" onClick={handleOpenOrCloseModal}>
         Deletar
       </button>
-    </div>
+    </Container>
   )
 }

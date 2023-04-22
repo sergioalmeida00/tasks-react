@@ -1,8 +1,8 @@
-import style from './Header.module.css'
 import logo from '../../assets/logo.svg'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { ContextTask } from '../../TaskContext'
+import { Container } from './styles'
 
 export function Header(){
   
@@ -23,9 +23,9 @@ export function Header(){
   }
 
   return(
-      <header className={style.header}>
+      <Container>
         <img src={logo} alt="Logo" />
-        <form className={style.formTask} onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <input 
             type="text"
             placeholder='Adicione uma nova tarefa'
@@ -36,6 +36,6 @@ export function Header(){
             Criar
           </button>
         </form>
-      </header> 
+      </Container> 
   )
 }
