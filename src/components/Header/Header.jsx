@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { ContextTask } from '../../TaskContext'
 import { Container } from './styles'
+import { Input } from '../Input'
 
 export function Header(){
   
@@ -26,7 +27,7 @@ export function Header(){
       <Container>
         <img src={logo} alt="Logo" />
         <form onSubmit={handleSubmit}>
-          <input 
+          <Input
             type="text"
             placeholder='Adicione uma nova tarefa'
             value={title}

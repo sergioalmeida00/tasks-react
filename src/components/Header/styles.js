@@ -20,15 +20,6 @@ export const Container = styled.header`
     padding: 0 1rem;
   }
 
-  input{
-    width: 100%;
-    padding: 1rem;
-    border-radius: 8px;
-    background:  ${({ theme }) => theme.COLOR.gray[500]};
-    border: none;
-    color:  ${({ theme }) => theme.COLOR.gray[100]};
-  }
-
   button{
     background:  ${({ theme }) => theme.COLOR.blue[500]};
     border: none;
@@ -45,7 +36,7 @@ export const Container = styled.header`
     }
 
     &:not(:disabled):hover{
-      background:  ${({ theme }) => theme.COLOR.blue[400]};
+      background:  ${({ theme }) => theme.COLOR.blue[700]};
     }
   }
 `
