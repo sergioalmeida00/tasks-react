@@ -11,7 +11,6 @@ export function Task({task}){
   function handleOpenOrCloseModal(valueModal){
     setOpenModal(valueModal )
   }
-
   return(
     <Container isCompleted={task.isCompleted }>
 
@@ -25,9 +24,10 @@ export function Task({task}){
         <div/>
       </button>
       
-       <p> 
+       <h3> 
         {task.title}
-       </p>
+        <strong> { task.quantity } { task.unit } </strong>
+       </h3>
 
       <button className="button-delete" onClick={handleOpenOrCloseModal}>
         Deletar

@@ -7,6 +7,12 @@ const LOCAL_STORAGE_KEY= 'todo:savedTasks'
 export function TaskProvider({ children }){
   const [tasks, setTasks] = useState([])
 
+  const [openModal, setOpenModal] = useState(false)
+
+  function handleOpenOrCloseModal(valueModal){
+    setOpenModal(valueModal )
+  }
+
   function loadSavedStorageTasks(){
    const savedTaskStorage = localStorage.getItem(LOCAL_STORAGE_KEY)
 
@@ -20,12 +26,14 @@ export function TaskProvider({ children }){
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks))
   }
 
-  function handleSetTasks(taskTitle){
+  function handleSetTasks(taskTitle,taskQuantity, taskUnit){
     setTasksStorage([
       ...tasks,
       {
         id:uuidv4(),
         title:taskTitle,
+        quantity:taskQuantity,
+        unit:taskUnit,
         isCompleted:false
       }
     ])
@@ -57,7 +65,7 @@ export function TaskProvider({ children }){
   
   return (
     <ContextTask.Provider
-      value={{setTasksStorage,handleSetTasks,handleDeleteById,toggleTaskCompletedById,tasks }}
+      value={{setTasksStorage,handleSetTasks,handleDeleteById,toggleTaskCompletedById,handleOpenOrCloseModal,tasks,  openModal}}
     >
         { children }
     </ContextTask.Provider>

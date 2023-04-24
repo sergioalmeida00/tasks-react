@@ -9,14 +9,11 @@ export const Container = styled.header`
   align-items: center;
   position: relative;
 
-  > form {
-    position: absolute;
-    height: 3.75rem;
-    bottom: calc(-3.75rem/2);
-    width: 100%;
+  main{
     max-width: 46rem;
+    width: 100%;
     display: flex;
-    gap: 0.5rem;
+    justify-content: space-between;
     padding: 0 1rem;
   }
 
