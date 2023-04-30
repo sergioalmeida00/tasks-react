@@ -57,8 +57,12 @@ export const Container = styled.div`
     color:  ${({ theme }) => theme.COLOR.gray[300]};
     font-weight: bold;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: color 0.1s;
+    font-size: 1.3rem;
+    transition: color 0.2s ease-in;
+
+    &:hover{
+      color: ${({ theme }) => theme.COLOR.red[400]};
+    }
   }
 
   ${({ theme,isCompleted }) => isCompleted && css`

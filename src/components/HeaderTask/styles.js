@@ -27,6 +27,25 @@ export const Container = styled.section`
    }
   }
 
+  >button {
+    background: none;
+    border: none;
+    color: ${({ theme }) => theme.COLOR.gray[200]};
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+
+
+    svg{
+      transform: ${({ orderBy }) => (orderBy ? 'rotate(-180deg)' : 'rotate(0deg)') };
+      transition: transform 0.3s ease-in;
+    }
+  }
+
   .task{
     margin-top: 1.5rem;
   }

@@ -2,6 +2,7 @@ import { ContextTask } from '../../TaskContext'
 import { useContext, useState } from 'react'
 import { Modal } from '../Modal/Modal'
 import { Container } from './styles'
+import { FiTrash } from 'react-icons/fi';
 
 export function Task({task}){
 
@@ -30,7 +31,7 @@ export function Task({task}){
        </h3>
 
       <button className="button-delete" onClick={handleOpenOrCloseModal}>
-        Deletar
+        <FiTrash/>
       </button>
     </Container>
   )
